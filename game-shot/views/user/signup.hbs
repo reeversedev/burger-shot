@@ -1,0 +1,48 @@
+<h1>Sign Up</h1>
+{{#if errors}} {{#each errors}}
+<div>
+{{msg}}
+</div>
+{{/each}} {{/if}}
+<div class="row">
+    <form class="col s12" action="/user/signup" method="post">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="firstname" type="text" class="validate" name="firstname">
+                <label for="firstname">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_box</i>
+                <input id="lastName" type="text" class="validate" name="lastName">
+                <label for="lastName">Last Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">edit_location</i>
+                <input id="address" type="text" class="validate" name="address">
+                <label for="address">Address</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input id="email" type="email" class="validate" name="email">
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">security</i>
+                <input id="password" type="password" class="validate" name="password">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <button class="btn waves-effect waves-light right black" type="submit" name="submit">Sign up
+    <i class="material-icons right">send</i></button>
+        </div>
+    </form>
+</div>
