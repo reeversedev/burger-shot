@@ -3,18 +3,24 @@
         <a href="/" class="brand-logo center">Game Shot</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
+            {{# if login}}
             <li><a href="sass.html">Cart</a></li>
             <li><a href="/user/profile">Profile</a></li>
+             <li><a href="/user/logout">Logout</a></li>
+             {{else}}
             <li><a href="/user/signin">Sign In</a></li>
             <li><a href="/user/signup">Sign Up</a></li>
-            <li><a href="badges.html">Logout</a></li>
+           {{/if}}
         </ul>
         <ul class="side-nav" id="mobile-demo">
+            {{# if login}}
             <li><a class="center" href="sass.html">Cart</a></li>
             <li><a class="center" href="/user/profile">Profile</a></li>
+            <li><a class="center" href="/user/logout">Logout</a></li>
+            {{else}}
             <li><a class="center" href="/user/signin">Sign In</a></li>
             <li><a class="center" href="/user/signup">Sign Up</a></li>
-            <li><a class="center" href="badges.html">Logout</a></li>
+            {{/if}}
         </ul>
     </div>
 </nav>
