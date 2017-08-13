@@ -1,0 +1,17 @@
+<h1>Cart</h1>
+{{# if products}}
+<ul class="collection">
+    {{# each products}}
+    <li class="collection-item avatar">
+        <img src="{{this.item.imagePath}}" alt="" class="circle">
+        <span class="title">{{this.item.title}}</span>
+        <p>Quantity: {{this.qty}} <br> Price: {{this.price}}
+        </p>
+            <a href="/reduce/{{this.item._id}}">Reduce by 1</a>
+            <span> | </span>
+            <a href="/remove/{{this.item._id}}">Remove All</a>
+    </li>
+    {{/each}}
+</ul>
+<a class="btn btn-waves right">Checkout</a>
+{{/if}}
