@@ -3,9 +3,9 @@
 <ul class="collection">
     {{# each products}}
     <li class="collection-item avatar">
-        <img src="{{this.item.imagePath}}" alt="" class="circle">
-        <span class="title">{{this.item.title}}</span>
-        <p>Quantity: {{this.qty}} <br> Price: {{this.price}}
+        <img src="{{this.item.imagePath}}" alt="{{this.item.description}}" class="circle">
+        <span class="title"><b>{{this.item.title}}</b></span>
+        <p>Quantity: {{this.qty}}<br> Price: &#x20B9;{{this.price}}
         </p>
             <a href="/reduce/{{this.item._id}}">Reduce by 1</a>
             <span> | </span>
@@ -13,5 +13,5 @@
     </li>
     {{/each}}
 </ul>
-<a class="btn btn-waves right">Checkout</a>
+<a class="btn btn-waves right" href="/checkout">Checkout</a>
 {{/if}}
