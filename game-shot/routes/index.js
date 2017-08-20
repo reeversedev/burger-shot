@@ -8,8 +8,8 @@ var upload = multer({
 })
 var S3fsImpl = new S3FS('game-shot', {
     region: 'us-west-2',
-    accessKeyId: 'AKIAIONYKQEOZ7GJYNMA',
-    secretAccessKey: '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'
+    accessKeyId: 'AKIAIYX566ZQH3IFSUVA',
+    secretAccessKey: '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'
 });
 var Cart = require('../models/cart');
 var Product = require('../models/product');
