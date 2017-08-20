@@ -8,8 +8,8 @@ var upload = multer({
 })
 var S3fsImpl = new S3FS('game-shot', {
     region: 'us-west-2',
-    accessKeyId: 'AKIAI6PNNST5R7MQ4ZNQ',
-    secretAccessKey: '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'
+    accessKeyId: 'AKIAIONYKQEOZ7GJYNMA',
+    secretAccessKey: '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'
 });
 var Cart = require('../models/cart');
 var Product = require('../models/product');
@@ -121,11 +121,11 @@ router.post('/checkout', isLoggedIn, function (req, res, next) {
     });
 });
 
-router.get('/admin/prateek', function (req, res, next) {
+router.get('/baap/sabkamalikek', function (req, res, next) {
     res.render('admin/administrator');
 });
 
-router.post('/admin/prateek', upload.single('file'), function (req, res, next) {
+router.post('/baap/sabkamalikek', upload.single('file'), function (req, res, next) {
     var file = req.file;
     console.log(file);
     console.log(file.path);
@@ -148,7 +148,7 @@ router.post('/admin/prateek', upload.single('file'), function (req, res, next) {
     product.save(function (err, result) {
         console.log('Item saved to database.', product);
         req.flash('success', 'Item added successfully');
-        res.redirect('/admin/prateek');
+        res.redirect('/baap/sabkamalikek');
     });
 });
 module.exports = router;
