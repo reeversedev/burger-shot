@@ -1,16 +1,16 @@
 <nav>
     <div class="nav-wrapper">
-        <a href="/" class="brand-logo center">Game Shot</a>
+        <a href="/" class="brand-logo center">Game shot</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             {{# if login}}
             <li><a class="center" href="/cart">
             {{# if session.cart.totalQty}}
-            <span class="new badge red">{{session.cart.totalQty}}</span> Cart</a> {{else}} Empty Cart (0)</a>
+            <i class="material-icons">shopping_cart</i><span class="header-link-text">Cart</span><span class="new badge red">{{session.cart.totalQty}}</span></a>                {{else}}<i class="material-icons">add_shopping_cart</i><span class="header-link-text"> Empty Cart (0)</span></a>
                 {{/if}}
             </li>
-            <li><a href="/user/profile">Profile</a></li>
-            <li><a href="/user/logout">Logout</a></li>
+            <li class="profile"><a href="/user/profile"><i class="material-icons">account_circle</i><span class="header-link-text">Profile</span></a></li>
+            <li><a href="/user/logout"><i class="material-icons color-crimson">remove_circle</i><span class="header-link-text">Logout</span></a></li>
             {{else}}
             <li><a href="/user/signin">Sign In</a></li>
             <li><a href="/user/signup">Sign Up</a></li>
@@ -18,16 +18,18 @@
         </ul>
         <ul class="side-nav" id="mobile-demo">
             {{# if login}}
-            <li><a class="center" href="/cart">
+            <li class="center"><a href="/cart">
             {{# if session.cart.totalQty}}
-            <span class="new badge red">{{session.cart.totalQty}}</span> Cart</a> {{else}} Empty Cart (0)</a>
+            <i class="material-icons">shopping_cart</i><span class="side-nav-cart">Cart</span><span class="new badge red">{{session.cart.totalQty}}</span></a>
+            {{else}}
+            <i class="material-icons">add_shopping_cart</i><span class="header-link-text"> Empty Cart (0)</span></a>
                 {{/if}}
             </li>
-            <li><a class="center" href="/user/profile">Profile</a></li>
-            <li><a class="center" href="/user/logout">Logout</a></li>
+            <li class="center"><a href="/user/profile"><i class="material-icons">account_circle</i><span>Profile</span></a></li>
+            <li class="center"><a href="/user/logout"><i class="material-icons color-crimson">remove_circle</i><span>Logout</span></a></li>
             {{else}}
-            <li><a class="center" href="/user/signin">Sign In</a></li>
-            <li><a class="center" href="/user/signup">Sign Up</a></li>
+            <li><a href="/user/signin">Sign In</a></li>
+            <li><a href="/user/signup">Sign Up</a></li>
             {{/if}}
         </ul>
     </div>
