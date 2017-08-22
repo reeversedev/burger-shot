@@ -1,16 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-var fs = require('fs');
-var S3FS = require('s3fs');
-var upload = multer({
-    dest: 'uploads'
-})
-var S3fsImpl = new S3FS('game-shot', {
-    region: 'us-west-2',
-    accessKeyId: 'AKIAIZC2UIYN7U3JLKOA',
-    secretAccessKey: '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'
-});
+
 var Cart = require('../models/cart');
 var Product = require('../models/product');
 var Order = require('../models/order');
@@ -121,36 +112,8 @@ router.post('/checkout', isLoggedIn, function (req, res, next) {
     });
 });
 
-router.get('/baap/sabkamalikek', function (req, res, next) {
-    res.render('admin/administrator');
-});
 
-router.post('/baap/sabkamalikek', upload.single('file'), function (req, res, next) {
-    var file = req.file;
-    console.log(file);
-    console.log(file.path);
 
-    var stream = fs.createReadStream(file.path);
-
-    S3fsImpl.writeFile(file.originalname, stream).then(function () {
-        var filePath = S3fsImpl.getPath(file.originalname);
-        var realPath = 'https://s3-us-west-2.amazonaws.com/' + filePath;
-        console.log(realPath);
-        
-        console.log('File has been sent - OK');
-    })
-    var product = new Product({
-        imagePath: 'https://s3-us-west-2.amazonaws.com/game-shot/' + file.originalname,
-        title: req.body.title,
-        price: req.body.price,
-        description: req.body.description
-    });
-    product.save(function (err, result) {
-        console.log('Item saved to database.', product);
-        req.flash('success', 'Item added successfully');
-        res.redirect('/baap/sabkamalikek');
-    });
-});
 module.exports = router;
 
 function isLoggedIn(req, res, next) {
