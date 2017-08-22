@@ -10,3 +10,16 @@
 .welcome {
     margin-right: 5px;
 }
+.material-icons {
+    display: list-item;
+    position: absolute;
+}
+.header-link-text {
+    margin-left: 30px;
+}
+.color-crimson {
+color: crimson!important;
+}
+.side-nav-cart {
+    margin-left: 30px;
+}
