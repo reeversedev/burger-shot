@@ -19,6 +19,8 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.5",
     "express-validator": "^3.2.1",
+    "handlebars": "^4.0.10",
+    "handlebars-intl": "^1.1.2",
     "hbs": "~4.0.1",
     "mongoose": "^4.11.6",
     "morgan": "~1.8.1",
