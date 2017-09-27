@@ -1,24 +1,31 @@
-<h4 class="right welcome">Welcome, {{username}}!</h4>
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h1>User Profile</h1>
         <hr>
-        <h2>My Orders</h2>
+        <h3>My Orders</h3>
         {{# each orders }}
+                  <div>
+                    
+                </div>
         <div class="panel panel-default">
             <div class="panel-body">
-                <ul class="list-group">
+                <ol class="collection">
                     {{# each this.items }}
-                    <li class="list-group-item">
-                        <span class="badge">{{ this.price }}</span> {{ this.item.title }} | {{ this.qty }} Units
+                    <li class="collection-item avatar">
+                        <img src="{{this.item.imagePath}}" class="circle">
+                        <span class="badge">Price: $ {{ this.price }}</span> {{ this.item.title }} | {{ this.qty }} Units
                     </li>
                     {{/each}}
-                </ul>
+                    <h6>Date: {{formatDate this.date day="numeric" month="long" year="numeric"}}</h6>
+                </ol>
             </div>
             <div class="panel-footer">
-                <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
+                <div class="col s12">
+                    <h5>Total Price: ${{formatNumber this.cart.totalPrice}}</h5>
+                </div>
             </div>
         </div>
+        <br>
         {{/each}}
     </div>
 </div>
