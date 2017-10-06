@@ -11,7 +11,7 @@
     margin-right: 5px;
 }
 .material-icons {
-    display: list-item;
+    display: inline;
     position: absolute;
 }
 .header-link-text {
@@ -29,4 +29,8 @@ color: crimson!important;
 }
 #item-image {
     height: 300px;
+}
+.profile-picture {
+    height: 100px;
+    width: 100px;
 }
