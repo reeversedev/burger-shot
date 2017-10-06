@@ -41,7 +41,7 @@ Order.find({user: req.user}, function(err, orders){
         cart = new Cart(order.cart);
         order.items = cart.generateArray();
         });
-    res.render('user/profile', {orders: orders});
+    res.render('user/profile', {orders: orders, firstname: req.user.firstname, lastname: req.user.lastname, address: req.user.address, number: req.user.number});
     });
 });
 router.post('/signin', passport.authenticate('local.signin', {
