@@ -33,6 +33,7 @@ color: crimson!important;
 .profile-picture {
     height: 100px;
     width: 100px;
+<<<<<<< HEAD
 }
 .product-image {
     margin-top: 30px;
@@ -60,4 +61,6 @@ color: crimson!important;
 }
 .card-title a {
     color: black;
+=======
+>>>>>>> c3eaa0a29bc812f71b96ae8a3719727b9d9612df
 }
