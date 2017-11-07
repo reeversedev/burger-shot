@@ -11,7 +11,7 @@
     margin-right: 5px;
 }
 .material-icons {
-    display: list-item;
+    display: inline;
     position: absolute;
 }
 .header-link-text {
@@ -29,4 +29,35 @@ color: crimson!important;
 }
 #item-image {
     height: 300px;
+}
+.profile-picture {
+    height: 100px;
+    width: 100px;
+}
+.product-image {
+    margin-top: 30px;
+    height: 350px;
+    width: 350px;
+}
+.product-title {
+    margin-top: 30px;
+}
+.positive {
+    color: green;
+}
+#buy-section {
+    margin-top: 90px;
+}
+#buy-section .btn {
+    margin: 10px;
+}
+.btn-black {
+    background-color: black!important;
+    color: white;
+}
+.red {
+    color: white;
+}
+.card-title a {
+    color: black;
 }

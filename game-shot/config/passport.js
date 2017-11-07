@@ -45,6 +45,9 @@ passport.use('local.signup', new LocalStrategy({
         newUser.email = email;
         newUser.password = newUser.encryptPassword(password);
         newUser.firstname = req.body.firstname;
+        newUser.lastname = req.body.lastname;
+        newUser.address = req.body.address;
+        newUser.number = req.body.number;
         newUser.save(function (err, result) {
             if (err) {
                 console.log(err);

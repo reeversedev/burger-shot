@@ -1,4 +1,7 @@
-<h1>Cart</h1>
+<div class="container">
+<h1 class="center">Cart</h1>
+</div>
+
 {{# if products}}
 <ul class="collection">
     {{# each products}}
@@ -7,11 +10,17 @@
         <span class="title"><b>{{this.item.title}}</b></span>
         <p>Quantity: {{this.qty}}<br> Price: &#x20B9;{{this.price}}
         </p>
-            <a href="/reduce/{{this.item._id}}">Reduce by 1</a>
-            <span> | </span>
-            <a href="/remove/{{this.item._id}}">Remove All</a>
+        <a href="/reduce/{{this.item._id}}">Reduce by 1</a>
+        <span> | </span>
+        <a href="/remove/{{this.item._id}}">Remove All</a>
     </li>
     {{/each}}
 </ul>
 <a class="btn btn-waves right" href="/checkout">Checkout</a>
-{{/if}}
+{{else}}
+<div class="container">
+<h3>Your cart seems empty. Why not shop something good?</h3>
+</div>
+
+{{/if}} 
+

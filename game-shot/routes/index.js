@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer');
 
+var User = require('../models/user');
 var Cart = require('../models/cart');
 var Product = require('../models/product');
 var Order = require('../models/order');
@@ -31,6 +32,20 @@ router.get('/cart', function (req, res, next) {
         products: cart.generateArray(),
         totalPrice: cart.totalPrice
     });
+});
+router.get('/products/:id', function (req, res, next) {
+    var productId = req.params.id;
+    Product.findById(productId, function (err, product) {
+        if (err) {
+            console.log(err);
+        }
+        res.render('product/product', {
+            productTitle: product.title,
+            productImage: product.imagePath,
+            productPrice: product.price,
+            productDescription: product.description
+        })
+    })
 });
 router.get('/add-to-cart/:id', function (req, res, next) {
     var productId = req.params.id;
@@ -65,17 +80,25 @@ router.get('/remove/:id', function (req, res, next) {
 });
 
 router.get('/checkout', isLoggedIn, function (req, res, next) {
-    if (!req.session.cart) {
-        return res.render('/cart', {
-            products: null
+    User.find({
+        firstname: req.firstname,
+        lastname: req.lastname
+    }, function (err, user) {
+        if (!req.session.cart) {
+            return res.render('/cart', {
+                products: null
+            });
+        }
+        var cart = new Cart(req.session.cart);
+        var errMsg = req.flash('error')[0];
+        res.render('shop/checkout', {
+            total: cart.totalPrice,
+            errMsg: errMsg,
+            noError: !errMsg,
+            firstname: req.user.firstname,
+            lastname: req.user.lastname,
+            address: req.user.address
         });
-    }
-    var cart = new Cart(req.session.cart);
-    var errMsg = req.flash('error')[0];
-    res.render('shop/checkout', {
-        total: cart.totalPrice,
-        errMsg: errMsg,
-        noError: !errMsg
     });
 });
 

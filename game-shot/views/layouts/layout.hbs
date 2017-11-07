@@ -11,11 +11,19 @@
   <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+  <!-- Google Analytics -->
+  <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-107728226-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
 </head>
 
 <body>
-  {{> header }}
-    {{{body}}}
+  {{> header }} {{{body}}}
   <script src="/javascripts/style.js"></script>
 </body>
 

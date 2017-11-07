@@ -7,12 +7,24 @@ var userSchema = new Schema({
         type: String,
         required: false
     },
+    lastname: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
     },
     password: {
         type: String,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    number: {
+        type: Number,
         required: true
     },
     createdOn: {

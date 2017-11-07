@@ -1,24 +1,43 @@
-<h4 class="right welcome">Welcome, {{username}}!</h4>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h1>User Profile</h1>
-        <hr>
-        <h2>My Orders</h2>
-        {{# each orders }}
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <ul class="list-group">
-                    {{# each this.items }}
-                    <li class="list-group-item">
-                        <span class="badge">{{ this.price }}</span> {{ this.item.title }} | {{ this.qty }} Units
-                    </li>
-                    {{/each}}
-                </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3 class="center"> Profile</h3>
+            <div class="center">
+                <div>
+                    <img src="https://i.pinimg.com/736x/7a/53/d3/7a53d3a56be1b78f97d2eb4ebcf8fa1f--galaxy-s-wallpaper-batman-wallpaper.jpg" class="circle img-responsive profile-picture">
+                </div>
+                <h5>{{firstname}} {{lastname}}</h5>
+                <h5>{{number}}</h5>
+                <h5>{{address}}</h5>
             </div>
-            <div class="panel-footer">
-                <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
+            <hr>
+            <h3>My Orders</h3>
+            {{# if orders}} {{# each orders }}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ol class="collection">
+                        {{# each this.items }}
+                        <li class="collection-item avatar">
+                            <img src="{{this.item.imagePath}}" class="circle">
+                            <span class="badge">Price: $ {{ this.price }}</span> {{ this.item.title }}
+                            <h6><b>Units:</b> {{this.qty}}</h6>
+                        </li>
+                        {{/each}}
+                        <div class="row">
+                            <div class="col m9 s6">
+                                <h6><b>Total Price:</b> ${{formatNumber this.cart.totalPrice}}</h6>
+                            </div>
+                            <div class="col m3 s12 fix">
+                                <h6><b>Date:</b> {{formatDate this.date day="numeric" month="long" year="numeric"}}</h6>
+                            </div>
+                        </div>
+                    </ol>
+                </div>
+
             </div>
+            <br> {{/each}} {{else}}
+            <h6>Looks like you have not ordered anything. Let's explore the store by clicking <a href="/">here</a>.</h6>
+            {{/if}}
         </div>
-        {{/each}}
     </div>
 </div>
