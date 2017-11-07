@@ -43,6 +43,6 @@
   "license": "MIT",
   "description": "The online game store using node.js and related stuff like express.js and mongoDb",
   "engines": {
-    "node": "6.11.0"
+    "node": "8.9.x"
   }
 }
