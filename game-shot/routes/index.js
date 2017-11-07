@@ -80,14 +80,7 @@ router.get('/remove/:id', function (req, res, next) {
 });
 
 router.get('/checkout', isLoggedIn, function (req, res, next) {
-<<<<<<< HEAD
-    User.find({
-        firstname: req.firstname,
-        lastname: req.lastname
-    }, function (err, user) {
-=======
     User.find({firstname: req.firstname, lastname: req.lastname}, function(err, user) {
->>>>>>> c3eaa0a29bc812f71b96ae8a3719727b9d9612df
         if (!req.session.cart) {
             return res.render('/cart', {
                 products: null

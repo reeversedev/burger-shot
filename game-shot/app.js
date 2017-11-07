@@ -11,11 +11,8 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
-<<<<<<< HEAD
 var Handlebars = require('handlebars');
-=======
 var Handlebars     = require('handlebars');
->>>>>>> c3eaa0a29bc812f71b96ae8a3719727b9d9612df
 var HandlebarsIntl = require('handlebars-intl');
 
 var routes = require('./routes/index');
