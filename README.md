@@ -1,2 +1,8 @@
 # game-shot
-Building an e-commerce platform for video games.
+E-commerce Platform for Video Games.
+
+Built using:
+1. Node.JS
+2. Express.JS
+3. Materialise CSS
+4. Passport.JS
