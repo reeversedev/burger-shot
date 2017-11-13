@@ -2,7 +2,7 @@
   "name": "game-shot",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app.js"
+    "start": "npm start"
   },
   "dependencies": {
     "aws-sdk": "^2.98.0",
