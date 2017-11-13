@@ -43,8 +43,16 @@ router.get('/products/:id', function (req, res, next) {
             productTitle: product.title,
             productImage: product.imagePath,
             productPrice: product.price,
-            productDescription: product.description
-        })
+            productDescription: product.description,
+            productCompany: product.company,
+            productSeller: product.seller,
+            productGenre: product.genre,
+            productPlatforms: product.platforms,
+            productDelievery: product.delievery,
+            productRequirements: product.requirements,
+            productRelease: product.release,
+            productDimensions: product.dimensions
+        });
     })
 });
 router.get('/add-to-cart/:id', function (req, res, next) {
@@ -80,7 +88,10 @@ router.get('/remove/:id', function (req, res, next) {
 });
 
 router.get('/checkout', isLoggedIn, function (req, res, next) {
-    User.find({firstname: req.firstname, lastname: req.lastname}, function(err, user) {
+    User.find({
+        firstname: req.firstname,
+        lastname: req.lastname
+    }, function (err, user) {
         if (!req.session.cart) {
             return res.render('/cart', {
                 products: null

@@ -1,10 +1,10 @@
  {{# each products }}
 <div class="row">
     {{# each this}}
-    <div class="col s12 m4">
+    <div class="col s12 m4 l4">
         <div class="card hoverable">
             <div class="card-image">
-                <img class="materialboxed responsive-img" src="{{this.imagePath}}" id="item-image">
+                <img class="materialboxed responsive-img center-align" src="{{this.imagePath}}" id="item-image">
                 <a href="/add-to-cart/{{this._id}}" class="btn-floating halfway-fab waves-effect waves-light red">
                     <i class="material-icons">add</i>
                 </a>
@@ -13,8 +13,24 @@
                 <span class="card-title">
                     <a href="/products/{{this._id}}" target="_blank">{{this.title}}</a>
                 </span>
-                <p>{{this.description}}</p>
-                <span class="price">&#x20B9;{{this.price}}</span>
+                <p>
+                    <p class="left-align">
+                        <b>{{this.company}}</b>
+                    </p>
+                    <p class="left-align">
+                        <b>Platform: </b> {{this.platforms}}
+                        <span class="right age">{{this.age}} +</span>
+                    </p>
+                    <p class="genre">
+                        <b>Genres: </b>{{this.genre}}</p>
+                </p>
+                <div class="card-action">
+                    <div>
+                        <button class="btn btn-black">Buy Now</button>
+                        <span class="price right">&#x20B9;{{this.price}}</span>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

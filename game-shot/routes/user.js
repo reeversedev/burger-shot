@@ -32,23 +32,31 @@ router.get('/signin', function (req, res) {
 });
 
 router.get('/profile', function (req, res) {
-Order.find({user: req.user}, function(err, orders){
-    if(err) {
-        return res.write('Error!');
-    }
-    var cart;
-    orders.forEach(function(order) {
-        cart = new Cart(order.cart);
-        order.items = cart.generateArray();
+    Order.find({
+        user: req.user
+    }, function (err, orders) {
+        if (err) {
+            return res.write('Error!');
+        }
+        var cart;
+        orders.forEach(function (order) {
+            cart = new Cart(order.cart);
+            order.items = cart.generateArray();
         });
-    res.render('user/profile', {orders: orders, firstname: req.user.firstname, lastname: req.user.lastname, address: req.user.address, number: req.user.number});
+        res.render('user/profile', {
+            orders: orders,
+            firstname: req.user.firstname,
+            lastname: req.user.lastname,
+            address: req.user.address,
+            number: req.user.number
+        });
     });
 });
 router.post('/signin', passport.authenticate('local.signin', {
     failureRedirect: '/user/signin',
-    failureFlash: true
+    failureFlash: 'true'
 }), function (req, res, next) {
-    if(req.session.oldUrl) {
+    if (req.session.oldUrl) {
         var oldUrl = req.session.oldUrl;
         req.session.oldUrl = null;
         res.redirect(oldUrl);

@@ -1,8 +1,9 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <div class="container">
     <h1>Sign Up</h1>
-    {{#if errors}} {{#each errors}}
-    <div>
-        {{msg}}
+    {{#if hasErrors}} {{#each messages}}
+    <div class="error-div z-depth-5">
+        <span>{{this}}</span> 
     </div>
     {{/each}} {{/if}}
     <div class="row">
@@ -50,7 +51,8 @@
             <div class="row">
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                 <button class="btn waves-effect waves-light right black" type="submit" name="submit">Sign up
-                <i class="material-icons right">send</i></button>
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
         </form>
     </div>

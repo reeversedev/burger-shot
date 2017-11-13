@@ -25,7 +25,6 @@ color: crimson!important;
 }
 .price {
     font-size: 20px;
-    margin-bottom: 100px;
 }
 #item-image {
     height: 300px;
@@ -58,6 +57,38 @@ color: crimson!important;
 .red {
     color: white;
 }
+.card {
+    width: 300px;
+}
 .card-title a {
     color: black;
+}
+.card-action .btn {
+    margin-left: -25px;
+}
+.genre {
+    margin-left: -25px;
+}
+.age {
+    font-size: 16px;
+    font-weight: bold; 
+}
+.error-div {
+    background-color: crimson;
+    color: white;
+}
+.error-div span {
+    padding: 10px;
+}
+/* Media Queries*/
+
+@media(min-width: 321px) and (max-width: 375px) {
+    .card {
+        margin-left: 25px!important;
+    }
+}
+@media(min-width: 340px) and (max-width: 425px) {
+    .card{
+        margin-left: 45px;
+    }
 }

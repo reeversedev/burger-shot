@@ -9,17 +9,19 @@
             <div>
                 <p>
                     <h6>
-                        <b>Platform: </b>PlayStation 4</h6>
+                        <b>Platform: </b>{{this.productPlatforms}}</h6>
                     <h6 class="positive flow-text">In Stock</h6>
                 </p>
             </div>
             <h5>Price: &#x20B9;{{this.productPrice}}</h5>
             <h6>
                 <b>Sold by:</b>
-                <a>Company Name</a>
+                <a>{{this.productSeller}}</a>
             </h6>
             <h6>
-                <b>Usual Delievery: </b> 2-3 Days</h6>
+                <b>Usual Delievery: </b>
+                {{this.productDelievery}} days
+                </h6>
             <div>
                 <a class="halfway-fab waves-effect waves-light red">18</a>
                 <p> Please note that this item is not for sale to people under the age of 18. By placing an order for this product,
@@ -35,6 +37,20 @@
         <div class="col l12">
             <h5>Description</h5>
             <p class="flow-text">{{this.productDescription}}</p>
+        </div>
+        <div class="col l12">
+            <h5>Minimum Requirements</h5>
+                <span class="col l12"><b>OS:</b> {{this.productRequirements.os}}</span>
+                <span class="col l12"><b>Processor:</b> {{this.productRequirements.processor}}</span>
+                <span class="col l12"><b>Memory:</b> {{this.productRequirements.memory}}</span>
+                <span class="col l12"><b>GPU:</b> {{this.productRequirements.gpu}}</span>
+                <span class="col l12"><b>Sound Card:</b> {{this.productRequirements.sound_card}}</span>
+                <span class="col l12"><b>Hard Drive:</b> {{this.productRequirements.hard_drive}}</span>
+        </div>
+        <div class="col l12">
+            <h5>Product Information</h5>
+            <span class="col l12"><b>Release Date: </b>{{this.productRelease}}</span>
+            <span class="col l12"><b>Product Dimensions: </b>{{this.productDimensions}}</span>
         </div>
     </div>
 

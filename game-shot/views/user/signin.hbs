@@ -1,5 +1,10 @@
 <div class="container">
     <h1>Sign In</h1>
+     {{#if hasErrors}} {{# each messages}}
+    <div class="error-div z-depth-5">
+        <span>{{this}}</span>
+    </div>
+    {{/each}} {{/if}}
     <div class="row">
         <form action="/user/signin" method="post">
             <div class="row">
@@ -19,7 +24,8 @@
             <div class="row">
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                 <button class="btn waves-effect waves-light right black" type="submit" name="send">sign in
-    <i class="material-icons right">send</i></button>
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
         </form>
     </div>
