@@ -1,1 +1,1 @@
-web: node game-shot/bin/www
+web: node game-shot/app.js
