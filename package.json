@@ -1,6 +1,6 @@
 {
   "name": "game-shot",
-  "version": "1.0",
+  "version": "1.0.0",
   "scripts": {
     "start": "node .bin/www"
   },
