@@ -1,36 +1,103 @@
-<nav>
+<nav class="nav-extended">
     <div class="nav-wrapper">
         <a href="/" class="brand-logo center">Game shot</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse">
+            <i class="material-icons">menu</i>
+        </a>
         <ul class="right hide-on-med-and-down">
             {{# if login}}
-            <li><a class="center" href="/cart">
-            {{# if session.cart.totalQty}}
-            <i class="material-icons">shopping_cart</i><span class="header-link-text">Cart</span><span class="new badge red">{{session.cart.totalQty}}</span></a>                {{else}}<i class="material-icons">add_shopping_cart</i><span class="header-link-text"> Empty Cart (0)</span></a>
+            <li>
+                <a class="center" href="/cart">
+                    {{# if session.cart.totalQty}}
+                    <i class="material-icons">shopping_cart</i>
+                    <span class="header-link-text">Cart</span>
+                    <span class="new badge red">{{session.cart.totalQty}}</span>
+                </a> {{else}}
+                <a href="/cart">
+                    <i class="material-icons">add_shopping_cart</i>
+                    <span class="header-link-text"> Empty Cart (0)</span>
+                </a>
                 {{/if}}
             </li>
-            <li class="profile"><a href="/user/profile"><i class="material-icons">account_circle</i><span class="header-link-text">Profile</span></a></li>
-            <li><a href="/user/logout"><i class="material-icons color-crimson">remove_circle</i><span class="header-link-text">Logout</span></a></li>
+            <li class="profile">
+                <a href="/user/profile">
+                    <i class="material-icons">account_circle</i>
+                    <span class="header-link-text">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="/user/logout">
+                    <i class="material-icons color-crimson">remove_circle</i>
+                    <span class="header-link-text">Logout</span>
+                </a>
+            </li>
             {{else}}
-            <li><a href="/user/signin">Sign In</a></li>
-            <li><a href="/user/signup">Sign Up</a></li>
+            <li>
+                <a href="/user/signin">Sign In</a>
+            </li>
+            <li>
+                <a href="/user/signup">Sign Up</a>
+            </li>
             {{/if}}
         </ul>
         <ul class="side-nav" id="mobile-demo">
             {{# if login}}
-            <li class="center"><a href="/cart">
-            {{# if session.cart.totalQty}}
-            <i class="material-icons">shopping_cart</i><span class="side-nav-cart">Cart</span><span class="new badge red">{{session.cart.totalQty}}</span></a>
-            {{else}}
-            <i class="material-icons">add_shopping_cart</i><span class="header-link-text"> Empty Cart (0)</span></a>
+            <li class="center">
+                <a href="/cart">
+                    {{# if session.cart.totalQty}}
+                    <i class="material-icons">shopping_cart</i>
+                    <span class="side-nav-cart">Cart</span>
+                    <span class="new badge red">{{session.cart.totalQty}}</span>
+                </a>
+                {{else}}
+                <a>
+                    <i class="material-icons">add_shopping_cart</i>
+                    <span class="header-link-text"> Empty Cart (0)</span>
+                </a>
                 {{/if}}
             </li>
-            <li class="center"><a href="/user/profile"><i class="material-icons">account_circle</i><span>Profile</span></a></li>
-            <li class="center"><a href="/user/logout"><i class="material-icons color-crimson">remove_circle</i><span>Logout</span></a></li>
+            <li class="center">
+                <a href="/user/profile">
+                    <i class="material-icons">account_circle</i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="center">
+                <a href="/user/logout">
+                    <i class="material-icons color-crimson">remove_circle</i>
+                    <span>Logout</span>
+                </a>
+            </li>
             {{else}}
-            <li class="center"><a href="/user/signin">Sign In</a></li>
-            <li class="center"><a href="/user/signup">Sign Up</a></li>
+            <li class="center">
+                <a href="/user/signin">Sign In</a>
+            </li>
+            <li class="center">
+                <a href="/user/signup">Sign Up</a>
+            </li>
             {{/if}}
+        </ul>
+    </div>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab">
+                <a href="" class="active" target="_self">Home</a>
+            </li>
+            <li class="tab">
+                <a href="/categories/action" target="_parent">Action</a>
+            </li>
+            <li class="tab">
+                <a href="/categories/racing" target="_parent">Racing</a>
+            </li>
+            <li class="tab">
+                <a href="/categories/openworld" target="_parent">Open World</a>
+            </li>
+            <li class="tab">
+                <a href="/categories/adventure" target="_parent">Adventure</a>
+            </li>
+            <li class="tab">
+                <a href="/categories/shooting" target="_parent">Shooting</a>
+            </li>
         </ul>
     </div>
 </nav>

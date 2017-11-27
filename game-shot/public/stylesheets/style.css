@@ -80,6 +80,9 @@ color: crimson!important;
 .error-div span {
     padding: 10px;
 }
+.nav-content {
+    background-color: black;
+}
 /* Media Queries*/
 
 @media(min-width: 321px) and (max-width: 375px) {

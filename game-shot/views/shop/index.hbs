@@ -1,3 +1,6 @@
+{{#if category}}
+<h4>Products related to <b>'{{category}}'</b></h4>
+{{/if}}
  {{# each products }}
 <div class="row">
     {{# each this}}
@@ -26,7 +29,7 @@
                 </p>
                 <div class="card-action">
                     <div>
-                        <button class="btn btn-black">Buy Now</button>
+                        <a class="btn btn-black" href="/buynow/{{this._id}}">Buy Now</a>
                         <span class="price right">&#x20B9;{{this.price}}</span>
                     </div>
 
