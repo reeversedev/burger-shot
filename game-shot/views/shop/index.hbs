@@ -1,7 +1,27 @@
 {{#if category}}
-<h4>Products related to <b>'{{category}}'</b></h4>
+<div class="container-fluid">
+    <h4>Products related to
+        <b>'{{category}}'</b>
+    </h4>
+</div>
 {{/if}}
- {{# each products }}
+<div class="carousel carousel-slider center" data-indicators="true">
+    <div class="carousel-item white-text" href="#one!">
+        {{!-- <h2>First Panel</h2>
+        <p class="white-text">This is your first panel</p> --}}
+        <img src="https://cdn.ndtv.com/tech/gadgets/gta-5-characters.jpg?output-quality=80" height="100%">
+    </div>
+    <div class="carousel-item white-text" href="#two!">
+     <img src="http://mp1st.com/wp-content/uploads/2017/04/Call-of-Duty-WWII.jpg" alt="">
+    </div>
+    <div class="carousel-item white-text" href="#three!">
+   <img src="https://i.ytimg.com/vi/A27te4Z_HWA/maxresdefault.jpg" alt="">
+    </div>
+    <div class="carousel-item white-text" href="#four!">
+        <img src="https://media.contentapi.ea.com/content/dam/ea/easports/fifa/features/2017/cristiano-ronaldo/june5/ronaldo-share.jpg" alt="">
+    </div>
+</div>
+{{# each products }}
 <div class="row">
     {{# each this}}
     <div class="col s12 m4 l4">
