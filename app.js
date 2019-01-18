@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -23,9 +22,12 @@ var app = express();
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect('mongodb://test:test@ds023373.mlab.com:23373/games')
+  .connect(
+    'mongodb://test:test@ds023373.mlab.com:23373/games',
+    { useMongoClient: true }
+  )
   .then(success => {
-    console.log(success);
+    console.log('Database connected');
   })
   .catch(err => {
     console.log(err);

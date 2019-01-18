@@ -2,7 +2,7 @@
   "name": "game-shot",
   "version": "1.1.0",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "aws-sdk": "^2.98.0",
@@ -28,15 +28,18 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "s3fs": "^2.5.0",
-    "serve-favicon": "~2.4.2",
     "stripe": "^4.24.0"
   },
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
   "keywords": [
-    "Javscript",
+    "Javascript",
     "Game-shot",
-    "node.js"
+    "node.js",
+    "express.js",
+    "mongodb"
   ],
   "author": "reeversedev",
   "license": "MIT",
