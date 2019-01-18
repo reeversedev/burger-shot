@@ -12,7 +12,7 @@ var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
 var Handlebars = require('handlebars');
-var Handlebars     = require('handlebars');
+var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
 
 var routes = require('./routes/index');
@@ -20,12 +20,21 @@ var userRoutes = require('./routes/user');
 
 var app = express();
 
-mongoose.connect('mongodb://test:test@ds023373.mlab.com:23373/games');
+mongoose.Promise = global.Promise;
+
+mongoose
+  .connect('mongodb://test:test@ds023373.mlab.com:23373/games')
+  .then(success => {
+    console.log(success);
+  })
+  .catch(err => {
+    console.log(err);
+  });
 require('./config/passport');
 
 // view engine setup
 HandlebarsIntl.registerWith(Handlebars);
-app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
+app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
 app.set('view engine', '.hbs');
 
 // uncomment after placing your favicon in /public
@@ -35,22 +44,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(validator());
 app.use(cookieParser());
-app.use(session({
-  secret: 'mysupersecret', 
-  resave: false, 
-  saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  cookie: { maxAge: 180 * 60 * 1000 }
-}));
+app.use(
+  session({
+    secret: 'mysupersecret',
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 180 * 60 * 1000 }
+  })
+);
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
-    res.locals.login = req.isAuthenticated();
-    res.locals.session = req.session;
-    next();
+  res.locals.login = req.isAuthenticated();
+  res.locals.session = req.session;
+  next();
 });
 
 app.use('/user', userRoutes);
@@ -86,6 +97,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
